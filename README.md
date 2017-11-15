@@ -9,7 +9,11 @@ This example is a Docker image containing extensions of openlmis-example service
  ```
 2. Add an environment file called `.env` to the root folder of the project, with the required 
 project settings and credentials. For a starter environment file, you can use [this 
-one](https://github.com/OpenLMIS/openlmis-config/blob/master/.env).
+one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env). eg:
+ ```shell
+ curl -o .env -L https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/settings-sample.env
+ ```
+
 3. Start up the application.
  ```shell
  docker-compose -f ref-distro-example-docker-compose.yml up
