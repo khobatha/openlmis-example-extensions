@@ -1,8 +1,7 @@
 
 repositories {
-    flatDir {
-        dirs '/libs/'
-    }
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
 }
 
 configurations {
@@ -12,7 +11,7 @@ configurations {
 }
 
 dependencies {
-    extension files('libs/openlmis-example-extension-0.0.1-SNAPSHOT.jar')
+    extension "org.openlmis:openlmis-example-extension:0.0.1-SNAPSHOT"
 }
 
 task copyExtensions(type: Copy) {
