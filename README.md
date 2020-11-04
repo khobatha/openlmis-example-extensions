@@ -1,11 +1,11 @@
 # OpenLMIS Example Extensions
-This example is a Docker image containing extensions of openlmis-example service. It is meant to demonstrate how extensions are added to openlmis-ref-distro.
+This example is a Docker image containing extensions of OpenLMIS services. It is meant to demonstrate how extensions are added to openlmis-ref-distro.
 
 
 ## Quick start
 1. Fork/clone this repository from GitHub.
  ```shell
- git clone https://github.com/OpenLMIS/openlmis-example-extensions.git
+ git clone https://github.com/OpenLMIS/openlmis-example-stockmanagement-validator-extension.git
  ```
 2. Add an environment file called `.env` to the root folder of the project, with the required 
 project settings and credentials. For a starter environment file, you can use [this 
@@ -31,17 +31,19 @@ that the extended implementation of OrderQuantity interface is used. See [Adding
 See [Configuring the Reference Distribution](#configuringrefdistro).
 3. Start up openlmis-ref-distro.
  ```shell
- docker-compose up
+    docker-compose up
  ```
  
 ## <a name="extensionpoints">Adding extension points</a>
 1. Add extension to the "dependencies" configuration in build.gradle:
 ```
-    extension "org.openlmis:openlmis-example-extension:0.0.1-SNAPSHOT"
+    extension "org.openlmis:openlmis-stockmanagement-validator-extension:0.0.1-SNAPSHOT"
 ```
 2. Modify extensions.properties with name of the extended component.
 ```
-    OrderQuantity=AmcOrderQuantity
+    AdjustmentReasonValidator=ExtensionAdjustmentReasonValidator
+    FreeTextValidator=ExtensionFreeTextValidator
+    UnpackKitValidator=ExtensionUnpackKitValidator
 ```
 
 
@@ -52,6 +54,6 @@ volumes:
   example-extensions:
     external: false
 ```
-The shared volume contains extension jars and extension point configuration. The role of this image is to copy them at startup so they may be read by the service.
+The shared volume contains extension jars and extension point configuration. The role of this image is to copy them at start-up, so they may be read by the service.
 
-An example configuration can be found in `ref-distro-example-docker-compose.yml`.
+An example configuration can be found in openlmis-ref-distro as `docker-compose.openlmis-stockmanagement-validator-extension.yml`.
