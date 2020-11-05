@@ -27,11 +27,9 @@ that the extended implementation of OrderQuantity interface is used. See [Adding
  ```shell
  git clone https://github.com/OpenLMIS/openlmis-ref-distro.git
  ```
-2. Replace the contents of the Reference Distribution's docker-compose.yml with ref-distro-example-docker-compose.yml from this repository. 
-See [Configuring the Reference Distribution](#configuringrefdistro).
-3. Start up openlmis-ref-distro.
+2. Start up openlmis-ref-distro.
  ```shell
-    docker-compose up
+    docker-compose -f docker-compose.openlmis-stockmanagement-validator-extension.yml up
  ```
  
 ## <a name="extensionpoints">Adding extension points</a>
