@@ -18,8 +18,15 @@ one](https://raw.githubusercontent.com/OpenLMIS/openlmis-ref-distro/master/setti
  ```shell
  docker-compose -f ref-distro-example-docker-compose.yml up
  ```
-4. Go to `http://<yourDockerIPAdress>/api/extensionPoint` to see
-that the extended implementation of OrderQuantity interface is used. See [Adding extension points](#extensionpoints).
+4. Check if the application behavior has changed according to the implemented extension point. 
+
+5. Bean of implemented extension point should be also visible in docker-compose logs.
+   To see extended logs add this loggers to the env file of ref-distro.
+```
+ logging.level.org.springframework.beans.factory=DEBUG
+ logging.level.org.springframework.core.io.support=DEBUG
+ logging.level.org.springframework.context.annotation=DEBU
+```
 
 
 ## Integration with openlmis-ref-distro
