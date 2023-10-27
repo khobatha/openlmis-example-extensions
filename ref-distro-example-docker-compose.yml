@@ -171,11 +171,11 @@ services:
       - service-configuration
       - consul
   
-  service-configuration:
-    build:
-      context: ./config
-    volumes:
-      - service-config:/config
+  #service-configuration:
+  #  build:
+  #    context: ./config
+  #  volumes:
+  #    - service-config:/config
 
   ftp:
     image: hauptmedia/proftpd
