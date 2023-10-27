@@ -168,7 +168,7 @@ services:
     volumes:
       - 'syslog:/var/log'
     depends_on:
-      - service-configuration
+      #- service-configuration
       - consul
   
   #service-configuration:
