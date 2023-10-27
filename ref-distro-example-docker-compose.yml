@@ -198,3 +198,5 @@ volumes:
     external: false
   example-extensions:
     external: false
+  service-config:
+    external: false
